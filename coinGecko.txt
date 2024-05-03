@@ -1,0 +1,7 @@
+https://api.coingecko.com/api/v3/coins/markets?vs_currency=EUR&ids=avalanche-2%2Cbinancecoin&order=market_cap_desc&per_page=100&page=1&sparkline=falses
+
+
+SELECT 	array_agg( T1.id_coins || ',') ,    sum(T0.buying_price * T0.quantity) as somme
+FROM public.userscoins T0
+LEFT JOIN public.coins T1 on T0.id_coins = T1.id_coins
+WHERE id_user = 1
